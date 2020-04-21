@@ -55,6 +55,17 @@
   			http://172.XX.X.XXX:8000/
 
 
+## Project Description :
+	
+	- Project has 2 roles Admin and User
+	- Admin can add users and assign multiple database (database1,database2,database3,database4,database5) to the user.
+	- On user creation, email is generated and user need to click the link in the email to activate the account.
+	- When user login, he is able to see all the database lists, which the admin assigned him.
+	- Admin can see all the user and their product details.
+	- User can create a Product by selecting database from the list and product will be saved under the selected database.
+	- User can see all the product lists with database name.  
+
+
 ## References :
 
 	- https://docs.djangoproject.com/en/1.10/
