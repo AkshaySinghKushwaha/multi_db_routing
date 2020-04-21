@@ -1,0 +1,46 @@
+{% extends "admin/index.html" %}
+{% block content %}
+<h2> List of users with their products </h2> 
+	{% if user_detail_dict %}
+		<br>
+		{% for each_key,each_value in user_detail_dict.items %}
+			<h4>User - {{each_key}}</h4>
+			<h5>Product Details :</h5>
+			{% if each_value %}
+			{% for each_product_list in each_value %}
+			{% if each_product_list.product %}
+			{% for each_product in each_product_list.product %}
+			<p>Product name : {{each_product.name}}</p>
+			<p>Product slug : {{each_product.slug}}</p>
+			<p>Product description : {{each_product.description}}</p>
+			<p>Product price : {{each_product.price}}</p>
+			<p>Product database : {{each_product_list.db_name}}</p>
+			<hr>
+			<br>
+			{% endfor %}
+			{% endif %}
+			<hr>
+			<br>
+			{% endfor %}
+			{% endif %}
+		{% endfor %}
+	{% endif %}
+
+<h2>Create User</h2>
+	<form method="post">
+	{% csrf_token %}
+	{% for field in form %}
+	<p>
+	{{ field.label_tag }}<br>
+	{{ field }}
+	{% if field.help_text %}
+	<small style="color: grey">{{ field.help_text }}</small>
+	{% endif %}
+	{% for error in field.errors %}
+	<p style="color: red">{{ error }}</p>
+	{% endfor %}
+	</p>
+	{% endfor %}
+	<button type="submit">Sign up</button>
+	</form>
+{% endblock %}

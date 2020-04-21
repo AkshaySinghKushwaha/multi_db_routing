@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+      <li class="{{ message.tags }}">{{ message }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+<div>	
+  <h2>Home</h2>
+</div>
+<div>  
+  <h3>List of databases</h3>
+  {% if database_list %}
+	{% for each_db in database_list %}
+		<p>{{each_db}}</p>
+	{% endfor %}
+  {% endif %}
+</div>
+<br>
+<hr>
+<div>
+	<a href="{% url 'product_details' %}">Click here to get list of all products with their details</a>
+</div>
+<br>
+<hr>
+
+<div>
+  <h3>Create Product</h3>
+  <form method="post">
+	{% csrf_token %}
+  	{{ product_form.as_p }}
+    <button type="submit">submit</button>
+  </form>
+</div>
+{% endblock %}

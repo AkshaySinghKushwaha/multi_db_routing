@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>List of Product Details</h2>
+  {% if all_product_list %}
+  <br>
+  {% for each_product_details in all_product_list %}
+    {% if each_product_details.product %}
+      {% for each_product in each_product_details.product %}
+        <p>Product name : {{each_product.name}}</p>
+        <p>Product slug : {{each_product.slug}}</p>
+        <p>Product description : {{each_product.description}}</p>
+        <p>Product price : {{each_product.price}}</p>
+        <p>Product database : {{each_product.db_name}}</p>
+      <hr>
+      <br>
+      {% endfor %}
+    {% endif %}
+  {% endfor %}
+  {% endif %}
+{% endblock %}
