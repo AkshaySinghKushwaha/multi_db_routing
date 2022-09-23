@@ -3,7 +3,7 @@ django-mysql==2.1.0
 dnspython==1.16.0
 mysql-connector-python==8.0.19
 MySQL-python==1.2.5
-protobuf==3.6.1
+protobuf==3.18.3
 psycopg2==2.8.5
 PyMySQL==0.9.3
 pytz==2019.3
